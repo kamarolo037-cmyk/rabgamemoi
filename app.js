@@ -223,7 +223,7 @@ function copyInviteLink(){
 
 function shareInvite(){
   const link = getInviteLink();
-  const text = `Залетай в Рабство! По моей ссылке станешь моим рабом, а мне дадут 5000 ₽ 😈`;
+  const text = `Заходи😈`;
   const shareUrl = `https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent(text)}`;
   if (tg && tg.openTelegramLink) tg.openTelegramLink(shareUrl);
   else if (tg && tg.openLink) tg.openLink(shareUrl);
