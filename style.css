@@ -1,0 +1,119 @@
+:root{
+  --bg:#f5f6f8; --card:#ffffff; --text:#111; --muted:#8a8f98;
+  --blue:#2f7bf6; --red:#ef4b4b; --border:#ececec;
+  --secondary-bg:#eef0f3; --secondary-text:#111;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#101114; --card:#1b1c20; --text:#f2f2f2; --muted:#8a8f98; --border:#2a2b30;
+    --secondary-bg:#2a2c31; --secondary-text:#f2f2f2;
+  }
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color: transparent;}
+html,body{height:100%; touch-action: manipulation; -webkit-text-size-adjust: 100%;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  overscroll-behavior: none;
+}
+#app{max-width:520px;margin:0 auto;padding:16px 16px 90px;min-height:100%;}
+h1{font-size:22px;margin:4px 0 16px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:14px;}
+.row{display:flex;align-items:center;gap:12px;}
+.avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;background:#ccc;flex:none;}
+.avatar.sm{width:44px;height:44px;}
+.name{font-weight:700;font-size:18px;}
+.muted{color:var(--muted);font-size:14px;}
+.stat{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid var(--border);font-size:15px;}
+.stat:first-of-type{border-top:none;}
+.banner{border-radius:14px;padding:16px;margin-bottom:14px;color:#fff;}
+.banner.owned{background:var(--red);}
+.banner.escape{background:var(--blue);}
+.banner button{margin-top:10px;width:100%;}
+button{
+  border:none;border-radius:12px;padding:12px 14px;font-size:15px;font-weight:600;
+  background:var(--blue);color:#fff;cursor:pointer;
+}
+button.secondary{background:var(--secondary-bg);color:var(--secondary-text);}
+button.danger{background:var(--red);}
+button:disabled{opacity:.5;cursor:not-allowed;}
+.price{color:var(--red);font-weight:700;}
+.list-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--border);}
+.list-item:first-child{border-top:none;}
+.list-item .info{flex:1;min-width:0;}
+.list-item .info .n{font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+input[type=text]{
+  width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--border);
+  background:var(--card);color:var(--text);font-size:15px;margin-bottom:10px;
+}
+.tabbar{
+  position:fixed;left:0;right:0;bottom:0;display:flex;
+  background:var(--card);border-top:1px solid var(--border);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+.tab{flex:1;text-align:center;padding:10px 0 8px;font-size:12px;color:var(--muted);cursor:pointer;}
+.tab.active{color:var(--blue);}
+.tab .ico{font-size:20px;display:block;}
+.modal-bg{
+  position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:flex-end;
+  z-index:50;
+}
+.modal{
+  background:var(--card);width:100%;max-width:520px;margin:0 auto;border-radius:18px 18px 0 0;
+  padding:20px;max-height:80vh;overflow:auto;
+}
+.toast{
+  position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);left:50%;transform:translateX(-50%);
+  background:#222;color:#fff;padding:10px 16px;border-radius:10px;font-size:14px;z-index:60;
+  max-width:90%;text-align:center;
+}
+.empty{color:var(--muted);text-align:center;padding:30px 0;}
+
+#app.busy{pointer-events:none;opacity:.7;}
+body.busy .modal{pointer-events:none;opacity:.7;}
+
+.slaves-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.slave-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:14px 10px 12px;
+  text-align:center;
+  cursor:pointer;
+}
+.slave-card .avatar{
+  width:64px;height:64px;
+  margin:0 auto 8px;
+  display:block;
+}
+.slave-card .n{
+  font-weight:600;
+  font-size:14px;
+  margin-bottom:2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.slave-card .job{
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:8px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.slave-card .rate{
+  display:inline-block;
+  background:var(--red);
+  color:#fff;
+  font-size:12px;
+  font-weight:600;
+  padding:5px 10px;
+  border-radius:20px;
+}
